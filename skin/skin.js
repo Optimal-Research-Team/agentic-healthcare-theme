@@ -20,6 +20,9 @@
         onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
     }
 
+    document.querySelectorAll('.gh-footer-signup-subhead').forEach(function (p) {
+        p.textContent = p.textContent.replace(/\s*Free\.\s*Unsubscribe anytime\.?/i, '').trim();
+    });
     document.querySelectorAll('.gh-form-input').forEach(function (i) { i.placeholder = 'you@clinic.ca'; });
 
     /* ---------- Generated cover art ---------- */
@@ -69,7 +72,7 @@
         if (container) {
             container.id = 'essays';
             var inner = container.querySelector('.gh-container-inner');
-            inner.insertBefore(el('<header class="ah-section-head"><div><p class="ah-kicker">Essays</p><h2 class="ah-section-title">Notes on AI agents and the Canadian health system.</h2></div><p class="ah-section-aside">Written by a family-medicine-trained physician building in health tech. Short, direct, and occasionally contrarian.</p></header>'), inner.firstChild);
+            inner.insertBefore(el('<header class="ah-section-head"><div><p class="ah-kicker">Essays</p><h2 class="ah-section-title">Notes on AI agents and the Canadian health system.</h2></div><p class="ah-section-aside">Written by a family-medicine-trained physician building in health tech.</p></header>'), inner.firstChild);
         }
         if (first) {
             first.classList.add('ah-feature');
