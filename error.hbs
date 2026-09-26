@@ -1,0 +1,12 @@
+{{!< default}}
+
+<section class="band band--short" aria-hidden="true"><canvas class="hero__canvas" data-gradient></canvas></section>
+
+<section class="section section--error">
+    <div class="container error">
+        <p class="error__code grad-text">{{statusCode}}</p>
+        <h1 class="archive-head__title">{{#match statusCode 404}}This page is off the chart.{{else}}Something went wrong.{{/match}}</h1>
+        <p class="archive-head__sub">{{message}}</p>
+        <a class="btn btn--dark" href="{{@site.url}}">Back to the homepage <span class="arrow" aria-hidden="true"></span></a>
+    </div>
+</section>

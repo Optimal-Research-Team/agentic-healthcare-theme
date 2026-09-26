@@ -1,0 +1,26 @@
+<article class="feature {{post_class}}">
+    <a class="feature__link" href="{{url}}">
+        <div class="feature__media">
+            {{#if feature_image}}
+                <img srcset="{{img_url feature_image size="m"}} 800w, {{img_url feature_image size="l"}} 1200w" sizes="(max-width: 860px) 100vw, 560px" src="{{img_url feature_image size="l"}}" alt="{{title}}">
+            {{else}}
+                <div class="art art--lg" data-art="{{slug}}" aria-hidden="true"></div>
+            {{/if}}
+            <span class="feature__badge">Latest essay</span>
+        </div>
+        <div class="feature__body">
+            <p class="kicker">{{#primary_tag}}{{name}}{{else}}Essay{{/primary_tag}} · {{date format="MMMM D, YYYY"}}</p>
+            <h3 class="feature__title">{{title}}</h3>
+            <p class="feature__excerpt">{{excerpt words="44"}}</p>
+            <div class="feature__foot">
+                {{#primary_author}}
+                    <span class="byline">
+                        {{> avatar}}
+                        <span>{{name}}</span>
+                    </span>
+                {{/primary_author}}
+                <span class="link-arrow">Read essay <span class="arrow" aria-hidden="true"></span></span>
+            </div>
+        </div>
+    </a>
+</article>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}" data-scheme="{{#match @custom.color_scheme "Dark"}}dark{{else match @custom.color_scheme "Auto"}}auto{{else}}light{{/match}}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{meta_title}}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="{{asset "css/screen.css"}}">
+
+    {{ghost_head}}
+    {{#unless @site.icon}}
+    <link rel="icon" type="image/svg+xml" href="{{asset "brand/favicon.svg"}}">
+    <link rel="apple-touch-icon" href="{{asset "brand/apple-touch-icon.png"}}">
+    {{/unless}}
+</head>
+<body class="{{body_class}}">
+<div class="site">
+
+    {{> header}}
+
+    <main id="main" class="site-main">
+        {{{body}}}
+    </main>
+
+    {{> footer}}
+
+</div>
+
+<script src="{{asset "js/main.js"}}" defer></script>
+{{ghost_foot}}
+</body>
+</html>

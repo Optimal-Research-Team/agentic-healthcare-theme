@@ -1,0 +1,66 @@
+{
+  "name": "agentic",
+  "description": "A Stripe-inspired Ghost theme for Agentic Healthcare — essays on AI agents and the Canadian health system.",
+  "demo": "https://peterphua.ca",
+  "version": "1.0.0",
+  "engines": {
+    "ghost": ">=5.0.0"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Peter Phua",
+    "email": "peter@beoptimal.ca",
+    "url": "https://peterphua.ca"
+  },
+  "keywords": [
+    "ghost",
+    "theme",
+    "ghost-theme"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Optimal-Research-Team/agentic-healthcare-theme.git"
+  },
+  "scripts": {
+    "test": "npx gscan .",
+    "zip": "mkdir -p dist && zip -r dist/agentic.zip . -x '*.git*' 'node_modules/*' 'dist/*' '*.DS_Store' 'preview/*'"
+  },
+  "config": {
+    "posts_per_page": 12,
+    "image_sizes": {
+      "xs": { "width": 160 },
+      "s": { "width": 400 },
+      "m": { "width": 800 },
+      "l": { "width": 1200 },
+      "xl": { "width": 2000 }
+    },
+    "card_assets": true,
+    "custom": {
+      "color_scheme": {
+        "type": "select",
+        "options": ["Light", "Dark", "Auto"],
+        "default": "Light"
+      },
+      "hero_headline": {
+        "type": "text",
+        "default": "Canada’s healthcare crisis is a technology problem.",
+        "group": "homepage"
+      },
+      "hero_subhead": {
+        "type": "text",
+        "default": "Essays on AI agents, clinical workflows and how we scale care in Canada — from a physician building in health tech.",
+        "group": "homepage"
+      },
+      "show_agent_demo": {
+        "type": "boolean",
+        "default": true,
+        "group": "homepage"
+      },
+      "show_thesis_section": {
+        "type": "boolean",
+        "default": true,
+        "group": "homepage"
+      }
+    }
+  }
+}

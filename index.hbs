@@ -1,0 +1,21 @@
+{{!< default}}
+
+<section class="band band--short" aria-hidden="true"><canvas class="hero__canvas" data-gradient></canvas></section>
+
+<section class="section section--archive">
+    <div class="container">
+        <header class="archive-head">
+            <p class="kicker">Archive</p>
+            <h1 class="archive-head__title">All essays</h1>
+            <p class="archive-head__sub">{{@site.description}}</p>
+        </header>
+
+        <div class="rows">
+            {{#foreach posts}}
+                {{> post-row}}
+            {{/foreach}}
+        </div>
+
+        {{pagination}}
+    </div>
+</section>

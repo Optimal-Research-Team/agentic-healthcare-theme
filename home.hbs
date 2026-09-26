@@ -1,0 +1,158 @@
+{{!< default}}
+
+{{!-- ============ HERO ============ --}}
+<section class="hero">
+    <div class="hero__bg" aria-hidden="true">
+        <canvas class="hero__canvas" data-gradient></canvas>
+    </div>
+    <div class="guides" aria-hidden="true"><div class="container guides__inner"><i></i><i></i><i></i><i></i><i></i></div></div>
+
+    <div class="container hero__inner">
+        <div class="hero__copy">
+            {{#get "posts" limit="1" include="tags"}}
+                {{#foreach posts}}
+                    <a class="pill" href="{{url}}">
+                        <span class="pill__tag">New</span>
+                        <span class="pill__text">{{title}}</span>
+                        <span class="arrow" aria-hidden="true"></span>
+                    </a>
+                {{/foreach}}
+            {{/get}}
+
+            <h1 class="hero__title">{{@custom.hero_headline}}</h1>
+            <p class="hero__sub">{{@custom.hero_subhead}}</p>
+
+            <div class="hero__actions">
+                {{#if @site.members_enabled}}{{#unless @member}}
+                    {{> subscribe-form variant="hero"}}
+                {{/unless}}{{/if}}
+                <a class="link-arrow link-arrow--hero" href="{{@site.url}}/what-is-agentic-healthcare/">Read the thesis <span class="arrow" aria-hidden="true"></span></a>
+            </div>
+        </div>
+
+        {{#if @custom.show_agent_demo}}
+        <div class="hero__demo">
+            {{> agent-console}}
+            <div class="float-card" aria-hidden="true">
+                <span class="float-card__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+                <span>
+                    <span class="float-card__label">Clinician time returned today</span><br>
+                    <span class="float-card__value">3h 42m</span>
+                </span>
+                <svg class="spark" viewBox="0 0 72 28"><defs><linearGradient id="sparkg" x1="0" x2="1"><stop offset="0" stop-color="#635bff"/><stop offset="1" stop-color="#0fbf7f"/></linearGradient></defs><path d="M2 22 L12 19 L20 21 L30 14 L40 16 L50 9 L60 11 L70 4" fill="none" stroke="url(#sparkg)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</section>
+
+{{!-- ============ ESSAYS ============ --}}
+<section class="section section--essays" id="essays">
+    <div class="container">
+        <header class="section__head">
+            <div>
+                <p class="kicker">Essays</p>
+                <h2 class="section__title">Notes on AI agents and the Canadian health system.</h2>
+            </div>
+            <p class="section__aside">Written by a family-medicine-trained physician building in health tech. Short, direct, and occasionally contrarian.</p>
+        </header>
+
+        {{#foreach posts limit="1"}}
+            {{> post-feature}}
+        {{/foreach}}
+
+        <div class="rows">
+            {{#foreach posts from="2"}}
+                {{> post-row}}
+            {{/foreach}}
+        </div>
+
+        {{#if pagination.next}}
+            <div class="more">
+                <a class="btn btn--ghost" href="{{page_url pagination.next}}">Older essays <span class="arrow" aria-hidden="true"></span></a>
+            </div>
+        {{/if}}
+    </div>
+</section>
+
+{{!-- ============ THESIS BENTO ============ --}}
+{{#if @custom.show_thesis_section}}
+<section class="section section--thesis">
+    <div class="container">
+        <header class="section__head section__head--center">
+            <p class="kicker">The thesis</p>
+            <h2 class="section__title">Supply can’t keep up with demand. <span class="grad-text">Force multipliers can.</span></h2>
+        </header>
+
+        <div class="bento">
+            <a class="tile tile--wide tile--pyramid" href="{{@site.url}}/what-is-agentic-healthcare/">
+                <div class="tile__copy">
+                    <p class="tile__eyebrow">01 · The root cause</p>
+                    <h3 class="tile__title">The demographic pyramid is inverting.</h3>
+                    <p class="tile__text">A shrinking tax base is funding care for a growing population with complex needs. Reallocating existing resources can’t close that gap.</p>
+                </div>
+                <div class="tile__viz" aria-hidden="true">
+                    <svg viewBox="0 0 260 180" class="pyramid">
+                        <g class="pyramid__bars">
+                            <rect x="100" y="8"   width="60"  height="16" rx="4"/>
+                            <rect x="84"  y="30"  width="92"  height="16" rx="4"/>
+                            <rect x="62"  y="52"  width="136" height="16" rx="4"/>
+                            <rect x="44"  y="74"  width="172" height="16" rx="4"/>
+                            <rect x="30"  y="96"  width="200" height="16" rx="4"/>
+                            <rect x="48"  y="118" width="164" height="16" rx="4"/>
+                            <rect x="70"  y="140" width="120" height="16" rx="4"/>
+                            <rect x="92"  y="162" width="76"  height="14" rx="4"/>
+                        </g>
+                    </svg>
+                    <span class="viz-label viz-label--top">Older</span>
+                    <span class="viz-label viz-label--bottom">Younger</span>
+                </div>
+            </a>
+
+            <a class="tile tile--stat" href="{{@site.url}}/canada-has-a-severe-shortage-of-ai-healthcare-workers/">
+                <p class="tile__eyebrow">02 · The math</p>
+                <p class="stat"><span class="grad-text">+20%</span></p>
+                <p class="tile__text">If each clinic can see about 20% more patients because visits move faster, the apparent shortage of MDs and NPs disappears.</p>
+            </a>
+
+            <a class="tile tile--stat" href="{{@site.url}}/what-is-agentic-healthcare/">
+                <p class="tile__eyebrow">03 · The lever</p>
+                <p class="stat"><span class="grad-text">2–4×</span></p>
+                <p class="tile__text">AI agents as force multipliers that help clinicians see patients two, three or four times faster, without compromising safety.</p>
+            </a>
+
+            <a class="tile tile--wide tile--voice" href="{{@site.url}}/voice-is-the-universal-interface/">
+                <div class="tile__copy">
+                    <p class="tile__eyebrow">04 · The interface</p>
+                    <h3 class="tile__title">Voice is the universal interface.</h3>
+                    <p class="tile__text">Patients are already overwhelmed. For senior-facing care, the simplest app is no app at all.</p>
+                </div>
+                <div class="tile__viz wave" aria-hidden="true">
+                    <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+{{/if}}
+
+{{!-- ============ AUTHOR ============ --}}
+<section class="section section--author">
+    <div class="container">
+        <div class="author-card">
+            <div class="author-card__mark" aria-hidden="true">
+                <img src="{{asset "brand/mark-512.png"}}" alt="" width="96" height="96" loading="lazy">
+            </div>
+            <div class="author-card__copy">
+                <p class="kicker">About the author</p>
+                <h2 class="author-card__title">Dr. Peter Phua, MD</h2>
+                <p class="author-card__text">Physician working in Canadian health tech. MD from McMaster University, trained in family medicine, and has worked on healthcare AI since the 2016 deep-learning era, including <em>Deep Diagnostics</em>.</p>
+                <div class="author-card__links">
+                    <a class="link-arrow" href="{{@site.url}}/about/">More about me <span class="arrow" aria-hidden="true"></span></a>
+                    <a class="chip" href="https://x.com/PeterPhuaAI" target="_blank" rel="noopener">X</a>
+                    <a class="chip" href="https://www.linkedin.com/in/peter-phua-md-ccfp-87a710318/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

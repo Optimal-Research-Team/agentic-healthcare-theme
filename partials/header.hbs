@@ -1,0 +1,28 @@
+<header class="topnav" data-nav>
+    <div class="container nav__inner">
+        <a class="nav__brand" href="{{@site.url}}" aria-label="{{@site.title}} — home">
+            {{#if @site.logo}}
+                <img class="nav__logo" src="{{img_url @site.logo size="s"}}" alt="{{@site.title}}">
+            {{else}}
+                <img class="nav__mark" src="{{asset "brand/favicon.svg"}}" alt="" width="26" height="26">
+                <span class="nav__title">{{@site.title}}</span>
+            {{/if}}
+        </a>
+
+        <nav class="nav__links" aria-label="Primary">
+            {{navigation}}
+        </nav>
+
+        <div class="nav__actions">
+            {{#if @site.members_enabled}}
+                {{#if @member}}
+                    <a class="btn btn--ghost btn--sm" href="#/portal/account" data-portal="account">Account</a>
+                {{else}}
+                    <a class="nav__signin" href="#/portal/signin" data-portal="signin">Sign in</a>
+                    <a class="btn btn--dark btn--sm" href="#/portal/signup" data-portal="signup">Subscribe <span class="btn__arrow" aria-hidden="true"></span></a>
+                {{/if}}
+            {{/if}}
+            <button class="nav__burger" type="button" aria-label="Open menu" aria-expanded="false" data-burger><span></span><span></span></button>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,12 @@
+<form class="subscribe {{#if variant}}subscribe--{{variant}}{{/if}}" data-members-form="subscribe">
+    <div class="subscribe__field">
+        <input class="subscribe__input" data-members-email type="email" placeholder="you@clinic.ca" aria-label="Email address" autocomplete="email" required>
+        <button class="btn btn--primary subscribe__btn" type="submit">
+            <span class="subscribe__label">Subscribe</span>
+            <span class="subscribe__spinner" aria-hidden="true"></span>
+        </button>
+    </div>
+    <p class="subscribe__note subscribe__note--default">Free. Join physicians, operators and builders.</p>
+    <p class="subscribe__note subscribe__note--success">Check your inbox to confirm your subscription.</p>
+    <p class="subscribe__note subscribe__note--error">Something went wrong — please try again.</p>
+</form>

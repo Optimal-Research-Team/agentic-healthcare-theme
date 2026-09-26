@@ -1,0 +1,25 @@
+{{!< default}}
+
+{{#post}}
+<article class="article article--page {{post_class}}">
+    <section class="band band--post" aria-hidden="true"><canvas class="hero__canvas" data-gradient></canvas></section>
+
+    {{#match @page.show_title_and_feature_image}}
+    <header class="article__head container">
+        <p class="kicker">{{@site.title}}</p>
+        <h1 class="article__title">{{title}}</h1>
+        {{#if custom_excerpt}}<p class="article__dek">{{custom_excerpt}}</p>{{/if}}
+    </header>
+
+    {{#if feature_image}}
+        <figure class="article__image container">
+            <img src="{{img_url feature_image size="l"}}" alt="{{title}}">
+        </figure>
+    {{/if}}
+    {{/match}}
+
+    <div class="article__body gh-content">
+        {{content}}
+    </div>
+</article>
+{{/post}}
