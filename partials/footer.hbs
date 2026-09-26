@@ -1,13 +1,12 @@
 {{#unless @member}}{{#if @site.members_enabled}}
 <section class="cta">
-    <div class="cta__glow" aria-hidden="true"></div>
     <div class="container cta__inner">
         <div class="cta__copy">
-            <p class="kicker kicker--light">Newsletter · Free</p>
+            <p class="kicker">Newsletter · Free</p>
             <h2 class="cta__title">New essays on healthcare AI, straight to your inbox.</h2>
             <p class="cta__sub">Occasional, considered writing on AI agents, clinical operations and the Canadian health system. No spam — unsubscribe anytime.</p>
         </div>
-        {{> subscribe-form variant="dark"}}
+        {{> subscribe-form}}
     </div>
 </section>
 {{/if}}{{/unless}}

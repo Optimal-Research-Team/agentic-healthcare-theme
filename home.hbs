@@ -2,10 +2,6 @@
 
 {{!-- ============ HERO ============ --}}
 <section class="hero">
-    <div class="hero__bg" aria-hidden="true">
-        <canvas class="hero__canvas" data-gradient></canvas>
-    </div>
-    <div class="guides" aria-hidden="true"><div class="container guides__inner"><i></i><i></i><i></i><i></i><i></i></div></div>
 
     <div class="container hero__inner">
         <div class="hero__copy">
@@ -32,6 +28,7 @@
 
         {{#if @custom.show_agent_demo}}
         <div class="hero__demo">
+            <div class="demo-stage" aria-hidden="true"><canvas class="hero__canvas" data-gradient></canvas></div>
             {{> agent-console}}
             <div class="float-card" aria-hidden="true">
                 <span class="float-card__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>

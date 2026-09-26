@@ -8,7 +8,7 @@ A custom, Stripe-inspired Ghost theme for [peterphua.ca](https://peterphua.ca), 
 
 | Element | What it does |
 |---|---|
-| **Flowing gradient hero** | A WebGL shader renders a slow, Stripe-style mesh gradient behind a diagonal cut. It falls back to a CSS gradient, pauses when offscreen and respects `prefers-reduced-motion`. |
+| **White, readability-first layout** | Every page sits on a white background with high-contrast body text. The flowing WebGL gradient (CSS fallback, pauses offscreen, respects `prefers-reduced-motion`) appears only as an accent panel behind the agent console, never behind text. |
 | **Agent console** | An animated "agent run" showing three looping clinic workflows (referral intake, pre-visit history, lab triage). All data is fictional. |
 | **Generated cover art** | Posts without a feature image get a unique gradient, grid and ECG-trace SVG seeded by the post slug, so every post has distinct art with no images to upload. |
 | **Editorial essay list** | A featured essay card followed by hairline rows (date · title · excerpt · thumb) instead of a grid of cards. |
