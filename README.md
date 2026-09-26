@@ -49,6 +49,17 @@ assets/css/screen.css  design tokens + all styles (no build step)
 assets/js/main.js      gradient shader, console, generated art, progress, nav
 ```
 
+## Ghost(Pro) Starter: Code-injection skin
+
+Starter can't upload custom themes, so `skin/` ports this design onto Ghost's official **Source** theme. It's served from GitHub Pages; pushing to `main` updates the live site.
+
+1. Settings → Design & branding → Theme: Source, with Navigation layout **Logo on the left**, Header style **Landing**, Header text set to the headline, Background image **off**, Post feed **List**, Show author **off**.
+2. Settings → Code injection:
+   - Site header: `<link rel="stylesheet" href="https://optimal-research-team.github.io/agentic-healthcare-theme/skin/skin.css">`
+   - Site footer: `<script src="https://optimal-research-team.github.io/agentic-healthcare-theme/skin/skin.js"></script>`
+
+Edit `skin/skin.src.css` and `skin/skin.js`, then run `npm run skin`, which inlines the logo into `skin.css`.
+
 ## Local development
 
 ```bash

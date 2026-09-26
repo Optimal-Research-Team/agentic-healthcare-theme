@@ -20,6 +20,8 @@
         onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
     }
 
+    document.querySelectorAll('.gh-form-input').forEach(function (i) { i.placeholder = 'you@clinic.ca'; });
+
     /* ---------- Generated cover art ---------- */
     function hash(s) { var h = 2166136261; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
     function rng(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; var t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
