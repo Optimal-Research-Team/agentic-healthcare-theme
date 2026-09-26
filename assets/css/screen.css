@@ -234,9 +234,9 @@ a:hover .arrow::after, button:hover .arrow::after, .row__link:hover .arrow::afte
 .hero__canvas::after { content: ""; }
 
 /* ---------- Hero ---------- */
-.hero { position: relative; padding: 152px 0 72px; isolation: isolate; }
+.hero { position: relative; padding: 168px 0 40px; isolation: isolate; }
 
-.hero__inner { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 64px; align-items: center; position: relative; z-index: 1; }
+.hero__inner { position: relative; z-index: 1; }
 
 .pill {
     display: inline-flex; align-items: center; gap: 10px; max-width: 100%;
@@ -722,3 +722,22 @@ a:hover .arrow::after, button:hover .arrow::after, .row__link:hover .arrow::afte
 }
 
 .section--author { padding-bottom: 0; }
+
+/* ---------- Agent demo section ---------- */
+.section--demo { border-top: 1px solid var(--line); }
+.demo { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 72px; align-items: center; }
+.demo__text { margin-top: 20px; font-size: 18px; line-height: 1.7; color: var(--body); max-width: 30em; }
+.demo__list { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 12px; }
+.demo__list li { position: relative; padding-left: 30px; font-size: 16px; font-weight: 500; color: var(--ink); }
+.demo__list li::before {
+    content: ""; position: absolute; left: 0; top: 3px; width: 18px; height: 18px; border-radius: 50%;
+    background: var(--ok);
+}
+.demo__list li::after {
+    content: ""; position: absolute; left: 6px; top: 6.5px; width: 4px; height: 8px;
+    border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg);
+}
+@media (max-width: 1024px) {
+    .demo { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+    .demo .hero__demo { max-width: 600px; }
+}

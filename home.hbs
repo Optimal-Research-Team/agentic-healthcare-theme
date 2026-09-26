@@ -26,20 +26,6 @@
             </div>
         </div>
 
-        {{#if @custom.show_agent_demo}}
-        <div class="hero__demo">
-            <div class="demo-stage" aria-hidden="true"><canvas class="hero__canvas" data-gradient></canvas></div>
-            {{> agent-console}}
-            <div class="float-card" aria-hidden="true">
-                <span class="float-card__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-                <span>
-                    <span class="float-card__label">Clinician time returned today</span><br>
-                    <span class="float-card__value">3h 42m</span>
-                </span>
-                <svg class="spark" viewBox="0 0 72 28"><defs><linearGradient id="sparkg" x1="0" x2="1"><stop offset="0" stop-color="#635bff"/><stop offset="1" stop-color="#0fbf7f"/></linearGradient></defs><path d="M2 22 L12 19 L20 21 L30 14 L40 16 L50 9 L60 11 L70 4" fill="none" stroke="url(#sparkg)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-        </div>
-        {{/if}}
     </div>
 </section>
 
@@ -128,6 +114,36 @@
                     <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
                 </div>
             </a>
+        </div>
+    </div>
+</section>
+{{/if}}
+
+{{!-- ============ AGENT DEMO ============ --}}
+{{#if @custom.show_agent_demo}}
+<section class="section section--demo">
+    <div class="container demo">
+        <div class="demo__copy">
+            <p class="kicker">What “agentic” means</p>
+            <h2 class="section__title">Agents that finish the work, not just draft it.</h2>
+            <p class="demo__text">The opportunity isn’t another dashboard. It’s software that takes a clinic task from inbox to done: reading the fax, finding the patient, chasing the missing ECG and booking the visit. Clinicians get their time back for patients.</p>
+            <ul class="demo__list">
+                <li>Referral intake, triage and booking</li>
+                <li>Pre-visit history by voice</li>
+                <li>Lab results sorted before a clinician sees them</li>
+            </ul>
+        </div>
+        <div class="hero__demo">
+            <div class="demo-stage" aria-hidden="true"><canvas class="hero__canvas" data-gradient></canvas></div>
+            {{> agent-console}}
+            <div class="float-card" aria-hidden="true">
+                <span class="float-card__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+                <span>
+                    <span class="float-card__label">Clinician time returned today</span><br>
+                    <span class="float-card__value">3h 42m</span>
+                </span>
+                <svg class="spark" viewBox="0 0 72 28"><defs><linearGradient id="sparkg" x1="0" x2="1"><stop offset="0" stop-color="#635bff"/><stop offset="1" stop-color="#0fbf7f"/></linearGradient></defs><path d="M2 22 L12 19 L20 21 L30 14 L40 16 L50 9 L60 11 L70 4" fill="none" stroke="url(#sparkg)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
         </div>
     </div>
 </section>
