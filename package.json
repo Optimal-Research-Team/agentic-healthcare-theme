@@ -1,6 +1,6 @@
 {
   "name": "agentic",
-  "description": "A Stripe-inspired Ghost theme for Agentic Healthcare — essays on AI agents and the Canadian health system.",
+  "description": "A Stripe-inspired Ghost theme for Agentic Healthcare \u2014 essays on AI agents and the Canadian health system.",
   "demo": "https://peterphua.ca",
   "version": "1.0.0",
   "engines": {
@@ -23,32 +23,47 @@
   },
   "scripts": {
     "test": "npx gscan .",
-    "zip": "mkdir -p dist && zip -r dist/agentic.zip . -x '*.git*' 'node_modules/*' 'dist/*' '*.DS_Store' 'preview/*'"
+    "zip": "mkdir -p dist && zip -r dist/agentic.zip . -x '*.git*' 'node_modules/*' 'dist/*' '*.DS_Store' 'preview/*' 'skin/*'",
+    "skin": "node skin/build.js"
   },
   "config": {
     "posts_per_page": 12,
     "image_sizes": {
-      "xs": { "width": 160 },
-      "s": { "width": 400 },
-      "m": { "width": 800 },
-      "l": { "width": 1200 },
-      "xl": { "width": 2000 }
+      "xs": {
+        "width": 160
+      },
+      "s": {
+        "width": 400
+      },
+      "m": {
+        "width": 800
+      },
+      "l": {
+        "width": 1200
+      },
+      "xl": {
+        "width": 2000
+      }
     },
     "card_assets": true,
     "custom": {
       "color_scheme": {
         "type": "select",
-        "options": ["Light", "Dark", "Auto"],
+        "options": [
+          "Light",
+          "Dark",
+          "Auto"
+        ],
         "default": "Light"
       },
       "hero_headline": {
         "type": "text",
-        "default": "Canada’s healthcare crisis is a technology problem.",
+        "default": "Canada\u2019s healthcare crisis is a technology problem.",
         "group": "homepage"
       },
       "hero_subhead": {
         "type": "text",
-        "default": "Essays on AI agents, clinical workflows and how we scale care in Canada — from a physician building in health tech.",
+        "default": "Essays on AI agents, clinical workflows and how we scale care in Canada \u2014 from a physician building in health tech.",
         "group": "homepage"
       },
       "show_agent_demo": {
