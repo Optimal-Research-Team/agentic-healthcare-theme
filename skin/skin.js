@@ -54,61 +54,50 @@
     /* ---------- Homepage ---------- */
     if (isHome) {
         var header = document.querySelector('.gh-header .gh-header-inner');
-        var cards = document.querySelectorAll('.gh-container.is-list .gh-card');
-        var first = cards[0];
-
         if (header) {
             var h1 = header.querySelector('.gh-header-title');
-            var form = header.querySelector('.gh-form');
-            if (first && h1) {
-                var fl = first.querySelector('.gh-card-link'), ft = first.querySelector('.gh-card-title');
-                header.insertBefore(el('<a class="ah-pill" href="' + fl.getAttribute('href') + '"><b>New</b><span>' + ft.textContent.trim() + '</span>' + arrow() + '</a>'), h1);
-            }
-            if (h1) h1.insertAdjacentElement('afterend', el('<p class="ah-sub">Essays on AI agents, clinical workflows and how we scale care in Canada — from a physician building in health tech.</p>'));
-            if (form) form.insertAdjacentElement('afterend', el('<div class="ah-after-form"><p class="ah-note">Free. Join physicians, operators and builders.</p><a class="ah-link" href="' + site + '/what-is-agentic-healthcare/">Read the thesis ' + arrow() + '</a></div>'));
+            if (h1) h1.insertAdjacentElement('afterend', el('<p class="ah-sub">Essays on AI agents, clinical workflows and how we scale care in Canada, from a physician building in health tech.</p>'));
         }
 
         var container = document.querySelector('.gh-container.is-list');
         if (container) {
             container.id = 'essays';
             var inner = container.querySelector('.gh-container-inner');
-            inner.insertBefore(el('<header class="ah-section-head"><div><p class="ah-kicker">Essays</p><h2 class="ah-section-title">Notes on AI agents and the Canadian health system.</h2></div><p class="ah-section-aside">Written by a family-medicine-trained physician building in health tech.</p></header>'), inner.firstChild);
-        }
-        if (first) {
-            first.classList.add('ah-feature');
-            var media = first.querySelector('.ah-thumb, .gh-card-image');
-            if (media) media.appendChild(el('<span class="ah-badge">Latest essay</span>'));
-            first.querySelector('.gh-card-wrapper').appendChild(el('<span class="ah-link ah-readmore">Read essay ' + arrow() + '</span>'));
+            inner.insertBefore(el('<h2 class="ah-label">Essays</h2>'), inner.firstChild);
+            var first = container.querySelector('.gh-card');
+            if (first) first.classList.add('ah-feature');
         }
 
         var after = container || document.querySelector('.gh-header');
-        var waves = ''; for (var w = 0; w < 24; w++) waves += '<i></i>';
         var sections = el('<div class="ah-sections">' +
-            /* Thesis bento */
-            '<section class="ah-section"><header class="ah-center"><p class="ah-kicker">The thesis</p><h2 class="ah-section-title">Supply can’t keep up with demand. <span class="ah-grad-text">Force multipliers can.</span></h2></header>' +
-            '<div class="ah-bento">' +
-                '<a class="ah-tile ah-tile--wide" href="' + site + '/what-is-agentic-healthcare/"><div class="ah-tile__copy"><p class="ah-eyebrow">01 · The root cause</p><h3>The demographic pyramid is inverting.</h3><p class="ah-t">A shrinking tax base is funding care for a growing population with complex needs. Reallocating existing resources can’t close that gap.</p></div>' +
-                    '<div class="ah-viz" aria-hidden="true"><svg viewBox="0 0 260 180" class="ah-pyramid"><rect x="100" y="8" width="60" height="16" rx="4" fill="#ef008f"/><rect x="84" y="30" width="92" height="16" rx="4" fill="#f0339f"/><rect x="62" y="52" width="136" height="16" rx="4" fill="#d647c4"/><rect x="44" y="74" width="172" height="16" rx="4" fill="#a25ce6"/><rect x="30" y="96" width="200" height="16" rx="4" fill="#7a73ff"/><rect x="48" y="118" width="164" height="16" rx="4" fill="#7f95f8"/><rect x="70" y="140" width="120" height="16" rx="4" fill="#6ec3f4"/><rect x="92" y="162" width="76" height="14" rx="4" fill="#a6dbf8"/></svg><span class="ah-vlabel" style="top:0">Older</span><span class="ah-vlabel" style="bottom:-4px">Younger</span></div></a>' +
-                '<a class="ah-tile ah-tile--stat" href="' + site + '/canada-has-a-severe-shortage-of-ai-healthcare-workers/"><p class="ah-eyebrow">02 · The math</p><p class="ah-stat"><span class="ah-grad-text">+20%</span></p><p class="ah-t">If each clinic can see about 20% more patients because visits move faster, the apparent shortage of MDs and NPs disappears.</p></a>' +
-                '<a class="ah-tile ah-tile--stat" href="' + site + '/what-is-agentic-healthcare/"><p class="ah-eyebrow">03 · The lever</p><p class="ah-stat"><span class="ah-grad-text">2–4×</span></p><p class="ah-t">AI agents as force multipliers that help clinicians see patients two, three or four times faster, without compromising safety.</p></a>' +
-                '<a class="ah-tile ah-tile--wide" href="' + site + '/voice-is-the-universal-interface/"><div class="ah-tile__copy"><p class="ah-eyebrow">04 · The interface</p><h3>Voice is the universal interface.</h3><p class="ah-t">Patients are already overwhelmed. For senior-facing care, the simplest app is no app at all.</p></div><div class="ah-viz ah-wave" aria-hidden="true">' + waves + '</div></a>' +
+            /* Thesis */
+            '<section class="ah-section"><div class="ah-wrap">' +
+                '<p class="ah-kicker">The thesis</p>' +
+                '<h2 class="ah-section-title">Supply can’t keep up with demand. <span class="ah-grad-text">Force multipliers can.</span></h2>' +
+                '<div class="ah-points">' +
+                    '<a class="ah-point" href="' + site + '/what-is-agentic-healthcare/"><span class="ah-num">01</span><h3>The demographic pyramid is inverting.</h3><p>A shrinking tax base is funding care for a growing population with complex needs. Reallocating existing resources can’t close that gap.</p></a>' +
+                    '<a class="ah-point" href="' + site + '/canada-has-a-severe-shortage-of-ai-healthcare-workers/"><span class="ah-num">02</span><h3><span class="ah-grad-text">+20%</span> patients per clinic</h3><p>If visits move faster and each clinic sees about 20% more patients, the apparent MD and NP shortage disappears.</p></a>' +
+                    '<a class="ah-point" href="' + site + '/what-is-agentic-healthcare/"><span class="ah-num">03</span><h3><span class="ah-grad-text">2–4×</span> faster visits</h3><p>AI agents as force multipliers help clinicians see patients two to four times faster, without compromising safety.</p></a>' +
+                    '<a class="ah-point" href="' + site + '/voice-is-the-universal-interface/"><span class="ah-num">04</span><h3>Voice is the universal interface.</h3><p>Patients are already overwhelmed. For senior-facing care, the simplest app is no app at all.</p></a>' +
+                '</div>' +
             '</div></section>' +
             /* Agent demo */
-            '<section class="ah-section"><div class="ah-demo"><div><p class="ah-kicker">What “agentic” means</p><h2 class="ah-section-title">Agents that finish the work, not just draft it.</h2><p class="ah-demo__text">The opportunity isn’t another dashboard. It’s software that takes a clinic task from inbox to done: reading the fax, finding the patient, chasing the missing ECG and booking the visit. Clinicians get their time back for patients.</p><ul class="ah-list"><li>Referral intake, triage and booking</li><li>Pre-visit history by voice</li><li>Lab results sorted before a clinician sees them</li></ul></div>' +
-                '<div class="ah-stage-wrap"><div class="ah-stage" aria-hidden="true"><canvas data-ah-gradient></canvas></div>' +
-                    '<div class="ah-console" data-ah-console><div class="ah-console__bar"><span class="ah-dots"><i></i><i></i><i></i></span><span class="ah-cname">⌁ agent / <b data-n>referral-intake</b></span><span class="ah-demo-tag" title="Illustrative demo — fictional data">Demo</span><span class="ah-status" data-s><i></i><span>Running</span></span></div><ol class="ah-steps" data-steps></ol><div class="ah-console__foot"><span class="ah-outcome" data-o></span><span class="ah-tabs" data-t></span></div></div>' +
-                    '<div class="ah-float" aria-hidden="true"><span class="ah-float__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span><small>Clinician time returned today</small><strong>3h 42m</strong></span><svg width="72" height="28" viewBox="0 0 72 28"><defs><linearGradient id="ahspark" x1="0" x2="1"><stop offset="0" stop-color="#635bff"/><stop offset="1" stop-color="#0fbf7f"/></linearGradient></defs><path d="M2 22 L12 19 L20 21 L30 14 L40 16 L50 9 L60 11 L70 4" fill="none" stroke="url(#ahspark)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>' +
-                '</div></div></section>' +
+            '<section class="ah-section"><div class="ah-wrap ah-demo"><div>' +
+                '<p class="ah-kicker">What “agentic” means</p>' +
+                '<h2 class="ah-section-title">Agents that finish the work, not just draft it.</h2>' +
+                '<p class="ah-demo__text">Software that takes a clinic task from inbox to done: reading the fax, finding the patient, chasing the missing ECG and booking the visit. Clinicians get their time back for patients.</p>' +
+            '</div>' +
+            '<div class="ah-stage-wrap"><div class="ah-stage" aria-hidden="true"><canvas data-ah-gradient></canvas></div>' +
+                '<div class="ah-console" data-ah-console><div class="ah-console__bar"><span class="ah-dots"><i></i><i></i><i></i></span><span class="ah-cname">agent / <b data-n>referral-intake</b></span><span class="ah-demo-tag" title="Illustrative demo, fictional data">Demo</span><span class="ah-status" data-s><i></i><span>Running</span></span></div><ol class="ah-steps" data-steps></ol><div class="ah-console__foot"><span class="ah-outcome" data-o></span><span class="ah-tabs" data-t></span></div></div>' +
+            '</div></div></section>' +
             /* Author */
-            '<section class="ah-section"><div class="ah-author"><img src="' + BASE + 'assets/brand/mark-512.png" alt="" width="112" height="112" loading="lazy"><div><p class="ah-kicker">About the author</p><h2>Dr. Peter Phua, MD</h2><p>Physician working in Canadian health tech. MD from McMaster University, trained in family medicine, and has worked on healthcare AI since the 2016 deep-learning era, including <em>Deep Diagnostics</em>.</p><div class="ah-author__links"><a class="ah-link" href="' + site + '/about/" style="margin-right:10px">More about me ' + arrow() + '</a><a class="ah-chip" href="https://x.com/PeterPhuaAI" target="_blank" rel="noopener">X</a><a class="ah-chip" href="https://www.linkedin.com/in/peter-phua-md-ccfp-87a710318/" target="_blank" rel="noopener">LinkedIn</a></div></div></div></section>' +
+            '<section class="ah-section"><div class="ah-wrap ah-author"><img src="' + BASE + 'assets/brand/mark-512.png" alt="" width="56" height="56" loading="lazy"><div>' +
+                '<h2>Dr. Peter Phua, MD</h2>' +
+                '<p>Physician working in Canadian health tech. MD from McMaster University, trained in family medicine, working on healthcare AI since the 2016 deep-learning era.</p>' +
+                '<p class="ah-author__links"><a href="' + site + '/about/">About</a><span>·</span><a href="https://x.com/PeterPhuaAI" target="_blank" rel="noopener">X</a><span>·</span><a href="https://www.linkedin.com/in/peter-phua-md-ccfp-87a710318/" target="_blank" rel="noopener">LinkedIn</a></p>' +
+            '</div></div></section>' +
         '</div>');
         if (after) after.insertAdjacentElement('afterend', sections);
-
-        sections.querySelectorAll('.ah-wave i').forEach(function (i, n) {
-            i.style.setProperty('--h', (.3 + Math.abs(Math.sin(n * 1.7)) * .7).toFixed(2));
-            i.style.animationDelay = (-n * .11) + 's';
-            i.style.backgroundPosition = (n / 23 * 100) + '% 0';
-        });
         initGradient(sections.querySelector('[data-ah-gradient]'));
         initConsole(sections.querySelector('[data-ah-console]'));
     }
@@ -133,17 +122,6 @@
         };
         window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, { passive: true });
         upd();
-    }
-
-    /* ---------- Scroll reveal ---------- */
-    if ('IntersectionObserver' in window && !reduce) {
-        var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -8% 0px' });
-        document.querySelectorAll('.gh-card, .ah-tile, .ah-author, .ah-section-head, .ah-center').forEach(function (t, i) {
-            if (t.getBoundingClientRect().top < window.innerHeight) return;
-            t.classList.add('ah-reveal');
-            if (t.classList.contains('ah-tile')) t.style.transitionDelay = (i % 4) * 70 + 'ms';
-            io.observe(t);
-        });
     }
 
     /* ---------- Flowing gradient (WebGL) ---------- */
