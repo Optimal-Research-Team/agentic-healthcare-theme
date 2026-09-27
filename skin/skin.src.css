@@ -217,7 +217,8 @@ a { transition: color .15s, opacity .15s; }
 .gh-article-title { font-size: clamp(34px, 4.4vw, 48px) !important; line-height: 1.1 !important; letter-spacing: -.038em !important; font-weight: 700 !important; text-wrap: balance; }
 .gh-article-excerpt { font-size: 20px !important; line-height: 1.5 !important; color: var(--ah-muted) !important; }
 .gh-meta-share { padding-bottom: 28px; border-bottom: 1px solid var(--ah-line); margin-top: 24px !important; }
-.gh-article-author-image:has(svg) { display: none !important; }
+.gh-article-author-image { flex: none; width: 36px !important; height: 36px !important; margin-right: 12px; border-radius: 50%; overflow: hidden; }
+.gh-article-author-image img { width: 100% !important; height: 100% !important; object-fit: cover; border-radius: 50%; }
 .gh-article-author-name, .gh-article-author-name a { font-size: 14px !important; font-weight: 600 !important; color: var(--ah-ink) !important; }
 .gh-article-meta-content { font-size: 14px !important; color: var(--ah-faint) !important; }
 .gh-button-share { height: 32px; border-radius: 999px !important; background: #fff !important; color: var(--ah-muted) !important; border: 1px solid var(--ah-line-strong) !important; box-shadow: none !important; font-size: 13px !important; font-weight: 500 !important; }

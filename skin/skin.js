@@ -110,6 +110,13 @@
             if (text.length > 40 && bold && bold.length >= text.length - 2) p.classList.add('ah-claim');
         });
     }
+    /* Author avatar: use the logo mark when the staff profile has no photo */
+    document.querySelectorAll('.gh-article-author-image a').forEach(function (a) {
+        if (a.querySelector('img') || !a.querySelector('svg')) return;
+        a.innerHTML = '<img src="' + BASE + 'assets/brand/mark-512.png" alt="" width="36" height="36">';
+        a.parentNode.classList.add('ah-avatar');
+    });
+
     if (isPost) {
         var bar = el('<div class="ah-progress" aria-hidden="true"><span></span></div>');
         body.appendChild(bar);
